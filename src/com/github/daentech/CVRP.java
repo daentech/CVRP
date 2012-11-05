@@ -1,5 +1,7 @@
 package com.github.daentech;
 
+import com.github.daentech.graphics.RouteVisualiser;
+
 public class CVRP {
 
 	/**
@@ -11,6 +13,8 @@ public class CVRP {
 		// Run the best by default, but allow switching on commandline input
 		
 		// Output a graph file
+		RouteVisualiser rv = new RouteVisualiser();
+		rv.getNodeMap();
 
 	}
 

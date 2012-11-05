@@ -82,9 +82,15 @@ public class CVRPData {
 	    return true;
     }
     
-    private static final int X_COORDINATE = 0; // x-axis coordinate is dimension 0 in coords[][]
-    private static final int Y_COORDINATE = 1; // y-axis coordinate is dimension 1 in coords[][]
+    public static final int X_COORDINATE = 0; // x-axis coordinate is dimension 0 in coords[][]
+    public static final int Y_COORDINATE = 1; // y-axis coordinate is dimension 1 in coords[][]
 
+    
+    // Return the coordinates for rendering
+    public static int[][] getCoords(){
+    	return coords;
+    }
+    
     // 2-dimensional array with the coordinates of each node in fruitybun-data.vrp. 
     // coords[0] is a dummy entry which is not used. Node 1 is at coords[1], node 2 is at coords[2] and so on.
     // A more Object-Oriented solution would have been to create coordinate objects but that may be overkill.
@@ -166,7 +172,7 @@ public class CVRPData {
 	 {27, 24},
 	 {40, 20},
 	 {40, 37}};// node 76
-
+    
     private static int[] demand = new int[]
 	{9999999,  // dummy entry to make index of array match indexing of nodes in fruitybun-data.vrp
 	 0,  // node 1
