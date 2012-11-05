@@ -15,6 +15,9 @@ public class CVRP {
 		// Output a graph file
 		RouteVisualiser rv = new RouteVisualiser();
 		rv.getNodeMap();
+		int[][] paths = {{1,3,4,6,7,34,25,11,56,32,1}};
+		rv.drawPaths(paths);
+		rv.saveImage();
 
 	}
 
