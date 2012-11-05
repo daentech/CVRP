@@ -25,6 +25,7 @@
 
 package com.github.daentech;
 
+
 public class CVRPData {
 
     /** The capacity that all vehicles in fruitybun-data.vrp have. */
