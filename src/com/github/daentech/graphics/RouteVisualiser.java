@@ -45,11 +45,11 @@ public class RouteVisualiser {
 	}
 	
 	public void drawPaths(int[][] paths){
-		g.setColor(Color.blue);
 		for (int i = 0; i < paths.length; i++ ){
+			g.setColor(Color.getHSBColor((float)((0.17 * i + 1.0) % 1.0), 0.8f, 1.0f));
 			for(int j = 0; j < paths[i].length - 1; j++){
-				g.drawLine(CVRPData.getCoords()[j][CVRPData.X_COORDINATE] * 10, CVRPData.getCoords()[j][CVRPData.Y_COORDINATE] * 10,
-						CVRPData.getCoords()[j+1][CVRPData.X_COORDINATE] * 10 , CVRPData.getCoords()[j+1][CVRPData.Y_COORDINATE] * 10 );
+				g.drawLine(CVRPData.getCoords()[paths[i][j]][CVRPData.X_COORDINATE] * 10, CVRPData.getCoords()[paths[i][j]][CVRPData.Y_COORDINATE] * 10,
+						CVRPData.getCoords()[paths[i][j+1]][CVRPData.X_COORDINATE] * 10 , CVRPData.getCoords()[paths[i][j+1]][CVRPData.Y_COORDINATE] * 10 );
 			}
 		}
 	}
