@@ -1,7 +1,12 @@
 package com.github.daentech;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+
 import com.github.daentech.algorithms.SimpleGA;
 import com.github.daentech.graphics.RouteVisualiser;
+import com.github.daentech.graphics.TimeGraph;
 
 public class CVRP {
 
@@ -34,6 +39,29 @@ public class CVRP {
 		rv.drawPaths(paths);
 		rv.drawKey(paths);
 		rv.saveImage(sga.getName());
+		
+		TimeGraph tg = new TimeGraph(true);
+		double[] weights = new double[1000];
+		double[] weights2 = new double[1000];
+		
+		Random rnd = new Random();
+		
+		for(int i = 0; i < 1000; i++){
+			weights[i] = rnd.nextDouble() * 500 + 600;
+			weights2[i] = rnd.nextDouble() * 500 + 600;
+		}
+		
+		Arrays.sort(weights);
+		Arrays.sort(weights2);
+		
+		// Add results to the graph
+		tg.addResults(weights, "SimpleGA");
+		tg.addResults(weights2, "AdvancedGA");
+		
+		tg.render();
+		
+		tg.save("SimpleGA");
+		
 
 	}
 

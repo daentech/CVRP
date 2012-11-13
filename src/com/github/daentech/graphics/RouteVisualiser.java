@@ -23,7 +23,7 @@ public class RouteVisualiser {
 	private Graphics2D g;
 	
 	public RouteVisualiser(boolean withKey){
-		b = new BufferedImage(withKey ? 920 : 770 ,770,BufferedImage.TYPE_INT_RGB); /* change sizes of course */
+		b = new BufferedImage(withKey ? 920 : 770 ,770,BufferedImage.TYPE_INT_RGB);
 		g = b.createGraphics();
 	}
 	
@@ -81,7 +81,7 @@ public class RouteVisualiser {
 	}
 	
 	public void saveImage(String filename){
-		try{ImageIO.write(b,"png",new File(filename + ".png"));}catch (Exception e) {}
+		try{ImageIO.write(b,"png",new File(filename + "-route.png"));}catch (Exception e) {}
 	}
 
 }

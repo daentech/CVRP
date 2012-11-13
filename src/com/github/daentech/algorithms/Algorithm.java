@@ -10,6 +10,7 @@ import com.github.daentech.CVRPData;
 public abstract class Algorithm {
 	
 	private int[][] paths = new int[76][];
+	private ArrayList<Double> weights = new ArrayList<Double>();
 
 	// Private method for converting arraylist<Integer> to int[]
 	private static int[] convertIntegers(List<Integer> integers)	{
@@ -22,8 +23,20 @@ public abstract class Algorithm {
 	    return ret;
 	}
 	
+	private static double[] convertDoubles(List<Double> doubles)	{
+	    double[] ret = new double[doubles.size()];
+	    Iterator<Double> iterator = doubles.iterator();
+	    for (int i = 0; i < ret.length; i++)
+	    {
+	        ret[i] = iterator.next().doubleValue();
+	    }
+	    return ret;
+	}
+	
 	// Abstract method for path calculation
 	// Must be overriden by sub classes
+	// This method should store on each iteration the best weight path 
+	// it has achieved in the weights arraylist
 	public abstract void run();
 	
 	// Abstract method for returning the name of the algorithm
@@ -66,6 +79,11 @@ public abstract class Algorithm {
 	// Return an array of int arrays for the series of paths
 	public int[][] getPaths(){
 		return paths;
+	}
+	
+	// Return an array of best weight values at each step
+	public double[] getWeightsOverTime(){
+		return convertDoubles(weights);
 	}
 	
 }

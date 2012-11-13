@@ -6,7 +6,6 @@ public class SimpleGA extends Algorithm{
 	@Override
 	public void run() {
 		
-		
 	}
 
 	@Override
