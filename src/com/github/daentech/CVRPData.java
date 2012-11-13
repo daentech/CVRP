@@ -73,6 +73,18 @@ public class CVRPData {
     // The square root of 1082 = 32.893768...
     // A simpler example is the distance between nodes 54 and 36, which have coordinates 55,57 and 55,50 and distance 7.0
     }    
+    
+    public static double getPathDistance(int[] path){
+    	
+    	double dist = 0;
+    	
+    	for (int i = 0; i < path.length - 1; i++){
+    		dist += getDistance(path[i], path[i+1]);
+    	}
+    	
+    	
+    	return dist;
+    }
 
     /** Return true if the given node is within the valid range (1..NUM_NODES), false otherwise */
     private static boolean nodeIsValid(int node) {
@@ -89,6 +101,28 @@ public class CVRPData {
     // Return the coordinates for rendering
     public static int[][] getCoords(){
     	return coords;
+    }
+    
+    // Return the total demand for the graph
+    public static int getTotalDemand(){
+    	int totalDemand = 0;
+    	for(int i = 1; i < demand.length; i++){
+    		totalDemand += demand[i];
+    	}
+    	return totalDemand;
+    }
+    
+    public static int getPathDemand(int[] path){
+    	int totalDemand = 0;
+    	for(int i = 1; i < path.length; i++){
+    		totalDemand += demand[path[i]];
+    	}
+    	return totalDemand;
+    }
+    
+    // Return whether the path is valid
+    public static boolean pathIsValid(int[] path){
+    	return getPathDemand(path) <= VEHICLE_CAPACITY;
     }
     
     // 2-dimensional array with the coordinates of each node in fruitybun-data.vrp. 
