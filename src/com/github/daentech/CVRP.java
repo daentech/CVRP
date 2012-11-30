@@ -13,7 +13,25 @@ public class CVRP {
 	/**
 	 * @param args
 	 */
+	
+	public static void test(){
+		LimitedPriorityQueue lpq = new LimitedPriorityQueue(5, new Double(1));
+		lpq.printArray();
+		
+		lpq.push(2, new Double(45));
+		lpq.push(4, new Double(50));
+		lpq.push(5, new Double(34));
+		lpq.push(6, new Double(20));
+		lpq.push(7, new Double(59));
+		lpq.push(8, new Double(12));
+		lpq.push(9, new Double(30));
+		
+		lpq.printArray();
+	}
+	
 	public static void main(String[] args) {
+		
+		test();
 		// Run each algorithm and output the result distance
 		
 		// Run the best by default, but allow switching on commandline input
@@ -34,7 +52,8 @@ public class CVRP {
 		
 		SimpleGA sga = new SimpleGA();
 		sga.randomise();
-		int[][] paths = sga.getPaths();
+		sga.run(100);
+		int[][] paths = sga.getChromosomes().get(0);
 		
 		rv.drawPaths(paths);
 		rv.drawKey(paths);

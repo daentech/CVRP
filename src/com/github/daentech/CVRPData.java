@@ -82,7 +82,6 @@ public class CVRPData {
     		dist += getDistance(path[i], path[i+1]);
     	}
     	
-    	
     	return dist;
     }
 
@@ -123,6 +122,22 @@ public class CVRPData {
     // Return whether the path is valid
     public static boolean pathIsValid(int[] path){
     	return getPathDemand(path) <= VEHICLE_CAPACITY;
+    }
+    
+    // Strip the depot from the input [][] and return a single []
+    public static int[] stripDepots(int[][] paths){
+    	
+    	int[] chromosome = new int[NUM_NODES - 1];
+    	int k = 0;
+    	for(int i = 0; i < paths.length; i++){
+    		if(paths[i] == null) break;
+    		for(int j = 1; j < paths[i].length - 1; j++){
+				chromosome[k] = paths[i][j];
+				k++;
+    		}
+    	}
+    	
+    	return chromosome;
     }
     
     // 2-dimensional array with the coordinates of each node in fruitybun-data.vrp. 
