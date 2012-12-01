@@ -45,7 +45,7 @@ public class RouteVisualiser {
 	
 	public void drawPaths(int[][] paths){
 		for (int i = 0; i < paths.length && paths[i] != null; i++ ){
-			g.setColor(Color.getHSBColor((float)((0.17 * i + 1.0) % 1.0), 0.8f, 1.0f));
+			g.setColor(Color.getHSBColor((float)((0.19 * i + 1.0) % 1.0), 0.8f, 1.0f));
 			for(int j = 0; j < paths[i].length - 1; j++){
 				g.drawLine(CVRPData.getCoords()[paths[i][j]][CVRPData.X_COORDINATE] * 10, CVRPData.getCoords()[paths[i][j]][CVRPData.Y_COORDINATE] * 10,
 						CVRPData.getCoords()[paths[i][j+1]][CVRPData.X_COORDINATE] * 10 , CVRPData.getCoords()[paths[i][j+1]][CVRPData.Y_COORDINATE] * 10 );
@@ -71,7 +71,7 @@ public class RouteVisualiser {
 		g.drawChars(title.toCharArray(), 0, title.length(), 770, boxtop + 30);
 		
 		for(i = 0; i < numPaths; i++){
-			g.setColor(Color.getHSBColor((float)((0.17 * i + 1.0) % 1.0), 0.8f, 1.0f));
+			g.setColor(Color.getHSBColor((float)((0.19 * i + 1.0) % 1.0), 0.8f, 1.0f));
 			g.drawLine(770, boxtop + 50 + i*30, 820, boxtop + 50 + i*30);
 			String weight = String.format("%1$,.2f", 
 					CVRPData.getPathDistance(paths[i]));

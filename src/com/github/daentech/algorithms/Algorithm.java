@@ -14,7 +14,7 @@ public abstract class Algorithm {
 	private ArrayList<Score> scores = new ArrayList<Score>();
 
 	// Private method for converting arraylist<Integer> to int[]
-	private static int[] convertIntegers(List<Integer> integers)	{
+	protected static int[] convertIntegers(List<Integer> integers)	{
 	    int[] ret = new int[integers.size()];
 	    Iterator<Integer> iterator = integers.iterator();
 	    for (int i = 0; i < ret.length; i++)
@@ -45,7 +45,7 @@ public abstract class Algorithm {
 	
 	// Randomise trucks
 	public void randomise(){
-		for(int j = 0; j < 10; j++){
+		for(int j = 0; j < 2000; j++){
 			int[][] paths = new int[76][];
 			ArrayList<Integer> nodes = new ArrayList<Integer>();
 			for(int i = 2; i < CVRPData.getCoords().length; i++){

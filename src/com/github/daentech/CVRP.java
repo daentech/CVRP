@@ -52,7 +52,7 @@ public class CVRP {
 		
 		SimpleGA sga = new SimpleGA();
 		sga.randomise();
-		sga.run(100);
+		sga.run(20000);
 		int[][] paths = sga.getChromosomes().get(0);
 		
 		rv.drawPaths(paths);
