@@ -34,9 +34,9 @@ public class LimitedPriorityQueue {
 		return false;
 	}
 	
-	public void printArray(){
+	public void printArray(int iteration){
 		
-		String s = "";
+		String s = iteration + ": ";
 		for(int i = 0; i < values.size(); i++){
 			s = s.concat("{" + String.valueOf(values.get(i).index) + ", " + String.valueOf(values.get(i).weight + "}"));
 			if(i < values.size() - 1) s = s.concat(", ");

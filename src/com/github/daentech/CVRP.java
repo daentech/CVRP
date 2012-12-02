@@ -16,7 +16,7 @@ public class CVRP {
 	
 	public static void test(){
 		LimitedPriorityQueue lpq = new LimitedPriorityQueue(5, new Double(1));
-		lpq.printArray();
+		lpq.printArray(0);
 		
 		lpq.push(2, new Double(45));
 		lpq.push(4, new Double(50));
@@ -26,7 +26,7 @@ public class CVRP {
 		lpq.push(8, new Double(12));
 		lpq.push(9, new Double(30));
 		
-		lpq.printArray();
+		lpq.printArray(1);
 	}
 	
 	public static void main(String[] args) {
@@ -52,34 +52,23 @@ public class CVRP {
 		
 		SimpleGA sga = new SimpleGA();
 		sga.randomise();
-		sga.run(20000);
-		int[][] paths = sga.getChromosomes().get(0);
-		
-		rv.drawPaths(paths);
-		rv.drawKey(paths);
+		sga.run(300000);
+		//int[][] paths = sga.getChromosomes().get(0);
+		sga.printBestPath();
+		rv.drawPaths(sga.getBestPath());
+		rv.drawKey(sga.getBestPath());
 		rv.saveImage(sga.getName());
 		
 		TimeGraph tg = new TimeGraph(true);
-		double[] weights = new double[1000];
-		double[] weights2 = new double[1000];
+		double[] weights = sga.getWeightsOverTime();
 		
-		Random rnd = new Random();
-		
-		for(int i = 0; i < 1000; i++){
-			weights[i] = rnd.nextDouble() * 500 + 600;
-			weights2[i] = rnd.nextDouble() * 500 + 600;
-		}
-		
-		Arrays.sort(weights);
-		Arrays.sort(weights2);
 		
 		// Add results to the graph
 		tg.addResults(weights, "SimpleGA");
-		tg.addResults(weights2, "AdvancedGA");
 		
 		tg.render();
 		
-		tg.save("SimpleGA");
+		tg.save(sga.getName());
 		
 
 	}

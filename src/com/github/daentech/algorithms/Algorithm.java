@@ -9,9 +9,9 @@ import com.github.daentech.CVRPData;
 
 public abstract class Algorithm {
 	
-	private ArrayList<Double> weights = new ArrayList<Double>();
+	protected ArrayList<Double> weights = new ArrayList<Double>();
 	protected ArrayList<int[][]> chromosomes = new ArrayList<int[][]>();
-	private ArrayList<Score> scores = new ArrayList<Score>();
+	protected ArrayList<Score> scores = new ArrayList<Score>();
 
 	// Private method for converting arraylist<Integer> to int[]
 	protected static int[] convertIntegers(List<Integer> integers)	{
