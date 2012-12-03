@@ -9,8 +9,8 @@ import com.github.daentech.LimitedPriorityQueue;
 public class SimpleGA extends Algorithm {
 
 	private final double probability = 0.002;
-	private final double zeroDeltaAddition = 0.000015;
-	private final int queueLimit = 19;
+	private final double zeroDeltaAddition = 0.00015;
+	private final int queueLimit = 222;
 
 	private int zeroDeltaIterations = 1;
 	private double prevWeight;
@@ -34,7 +34,7 @@ public class SimpleGA extends Algorithm {
 				double length = fitness(chromosomes.get(j));
 				lpq.push(j, new Double(length));
 			}
-			if (i % 300 == 0) {
+			if (i % 1000 == 0) {
 				lpq.printArray(i);
 				//System.out.println("ZeroDeltaIterations: " + zeroDeltaIterations);
 				System.out.println("Best path: " + fitness(bestPath));
@@ -62,7 +62,7 @@ public class SimpleGA extends Algorithm {
 				//	chromosomes.add(generateRandomPath());
 				//}
 				zeroDeltaIterations = 0;
-			} else if (zeroDeltaIterations % 1000 == 0 && zeroDeltaIterations >= 1000) {
+			} else if (zeroDeltaIterations % 300 == 0 && zeroDeltaIterations >= 300) {
 				// We've probably hit a local minima, so generate a lot more
 				// random ones
 				int[][] pathA = chromosomes.get(indices[0]);
